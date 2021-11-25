@@ -1,0 +1,66 @@
+*{
+  box-sizing: border-box;
+}
+.container{
+  width: 100%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.leftcontent{
+  display: block;
+  width: 25%;
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+.rightcontent{
+  display: block;
+  padding: 10px;
+  width: 74%;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #fff;
+}
+.header{
+  width: 100%;
+  padding: 10px;
+}
+.header h1{
+  font-weight: 600;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.card{
+  width: 100%;
+  margin: 0 auto;
+}
+.accordion-item{
+  padding: 0;
+  margin: 0;
+}
+.collapse.in, .collapse{
+  height: 100px;
+  overflow-y: scroll;
+  max-height:100px;
+}
+#instrument.collapsing{
+    max-height:100px;
+}
+.accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  border: 0;
+  border-radius: 0;
+  overflow-anchor: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+}

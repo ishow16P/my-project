@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="content">
+    <div class="head-content">
+      <div class="left-header">
+        <h2>จัดการโครงการ</h2>
+      </div>
+    </div>
+    <form [formGroup]="projectForm" (ngSubmit)="OnSubmit()">
+      <div class="input-box">
+        <label >ชื่อโครงการ :</label>
+        <input type="text"  pInputText formControlName="pro_name">
+      </div>
+      <div class="input-box">
+        <label>ประเภทโครงการ :</label>
+        <select class="form-select" aria-label="Default select example" formControlName="pro_type_id">
+          <option value="1">ไม่ต่อเนื่อง</option>
+          <option value="2">ต่อเนื่อง</option>
+        </select>
+      </div>
+      <div class="pro-date-box">
+        <h3>วันที่เริ่มต้น-วันที่สิ้นสุด:</h3>
+        <div class="date-box">
+              <mat-form-field appearance="fill">
+                <mat-label>วันที่เริ่มต้น-วันที่สิ้นสุด :</mat-label>
+                <mat-date-range-input  [rangePicker]="picker1">
+                  <input matStartDate formControlName="start_date" placeholder="Start date">
+                  <input matEndDate formControlName="end_date" placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker1></mat-date-range-picker>
+                <mat-error *ngIf="projectForm.controls.start_date.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                <mat-error *ngIf="projectForm.controls.end_date.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+              </mat-form-field>
+        </div>
+      </div>
+      <div class="pro-date-box">
+        <h3>เริ่มต้นส่งผลงาน-สิ้นสุดส่งผลงาน :</h3>
+          <div class="date-box">
+                <mat-form-field appearance="fill" >
+                  <mat-label>เริ่มต้นส่งผลงาน :</mat-label>
+                  <mat-date-range-input  [rangePicker]="picker2" >
+                    <input matStartDate formControlName="submit_start" placeholder="เริ่มต้นส่งผลงาน">
+                    <input matEndDate formControlName="submit_end" placeholder="สิ้นสุดส่งผลงาน">
+                  </mat-date-range-input>
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker2></mat-date-range-picker>
+                  <mat-error *ngIf="projectForm.controls.submit_start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                  <mat-error *ngIf="projectForm.controls.submit_end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                </mat-form-field>
+          </div>
+      </div>
+      <div class="pro-date-box">
+        <h3>เริ่มต้นให้คะแนน-สิ้นสุดให้คะแนน :</h3>
+        <div class="date-box">
+          <mat-form-field appearance="fill">
+            <mat-label>วันที่เริ่มให้คะแนน :</mat-label>
+            <mat-date-range-input  [rangePicker]="picker3">
+              <input matStartDate formControlName="score_start" placeholder="เริ่มต้นให้คะแนน">
+              <input matEndDate formControlName="score_end" placeholder="สิ้นสุดให้คะแนน">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker3></mat-date-range-picker>
+            <mat-error *ngIf="projectForm.controls.score_start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="projectForm.controls.score_end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-box">
+        <label>ชื่อกฎเกณฑ์ :</label>
+        <input type="text"  pInputText formControlName="rule_name">
+      </div>
+      <div class="input-box">
+        <label>กฎเกณฑ์ที่ 1 :</label>
+        <input type="text"  pInputText formControlName="rule_1">
+      </div>
+      <div class="input-box">
+        <label>กฎเกณฑ์ที่ 2 :</label>
+        <input type="text"  pInputText formControlName="rule_2">
+      </div>
+      <div class="input-box">
+        <label>กฎเกณฑ์ที่ 3 :</label>
+        <input type="text"  pInputText formControlName="rule_3">
+      </div>
+      <div class="input-box">
+        <label>กฎเกณฑ์ที่ 4 :</label>
+        <input type="text"  pInputText formControlName="rule_4">
+      </div>
+      <div class="input-box">
+        <label>กฎเกณฑ์ที่ 5 :</label>
+        <input type="text"  pInputText formControlName="rule_5">
+      </div>
+      <div class="input-box">
+        <label>คำอธิบาย :</label>
+        <input type="text"  pInputText formControlName="description">
+      </div>
+      <div class="btn-group">
+        <!-- {{this.projectUpdateForm.value | json}} -->
+        <button type="submit">แก้ไขโครงการ</button>
+      </div>
+    </form>
+  </div>
+</div>
+

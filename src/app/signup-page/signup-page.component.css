@@ -1,0 +1,215 @@
+.container{
+  width: 80%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  padding-top: 70px;
+}
+.content{
+  width: 55%;
+  min-width: 450px;
+  height: inherit;
+  margin: 0 auto;
+  background: #fff;
+  border: none;
+  filter: drop-shadow(0px 3px 3px #999);
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+}
+.left-content{
+  width: 50%;
+  height: inherit;
+  position: relative;
+  background: #3d5a5b;
+  display: flex;
+  border-radius: 1rem 0 0 1rem;
+}
+.right-content{
+  width: 50%;
+  background: #fff;
+  height: inherit;
+  border-radius:  0 1rem 1rem 0;
+}
+.welcom-text h1{
+  color: white;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+}
+.signin-btn button{
+  width: 130px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  color: white;
+  font-size: 16px;
+  font-weight: lighter;
+  border: none;
+  background: #2f365f;
+  cursor: pointer;
+
+}
+.signin-btn button:hover{
+  color: black;
+  background: #fff;
+  transition: all 0.4s ease;
+}
+.head-text h1{
+  color: #000;
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  margin: 10% auto 13%;
+}
+.right-content form{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-size: 14px;
+  margin: 0 auto 0 30px;
+}
+.box-username,
+.box-password1,
+.box-password2{
+  width: 100%;
+  height: 55px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.box-fname,
+.box-lname{
+  width: 50%;
+  height: 55px;
+  display: block;
+  margin-bottom: 10px;
+}
+.box-Email,
+.box-tell{
+  width: 100%;
+  display: block;
+  height: 55px;
+}
+.box-username label,
+.box-titles label,
+.box-fname label,
+.box-lname label,
+.box-Email label,
+.box-tell label,
+.box-password1 label,
+.box-password2 label{
+  display: block;
+}
+.box-username input,
+.box-fname input,
+.box-lname input,
+.box-Email input,
+.box-tell input,
+.box-password1 input,
+.box-password2 input{
+  padding-left: 5px;
+  height: 27px;
+  border: none;
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+  filter: drop-shadow(0px 1px 1px #999);
+  outline: none;
+  font-size: 14px;
+  color: #333;
+}
+
+.box-username input,
+.box-password1 input,
+.box-password2 input,
+.box-Email input,
+.box-tell input{
+  width: 93.5%;
+}
+
+
+.box-fname input,
+.box-lname input{
+  width: 87%;
+}
+.box-password1,
+.box-password2 {
+  color: #777;
+}
+#textpass{
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+#float-input{
+  border-radius: 5px;
+}
+#togglePassword1,
+#togglePassword2{
+  cursor: pointer;
+  color: #555;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-left:-25px ;
+  position: absolute;
+}
+.p-inputtext {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  color: #495057;
+  background: #ffffff;
+  padding: 0px;
+  border: 1px solid #ced4da;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+}
+.signup-btn{
+  width: 100%;
+  height:inherit;
+  padding-top: 10px;
+
+}
+.signup-btn button{
+  width: 130px;
+  height: 35px;
+  margin-bottom: 20px;
+  color: black;
+  font-size: 16px;
+  font-weight: normal;
+  filter: drop-shadow(0px 2px 2px #A7DB8C);
+  border: none;
+  background: #A7DB8C;
+  margin-top: 10px;
+  margin-left: 25%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.signup-btn button:hover{
+  color: #fff;
+  background: #779E63;
+  transition: all 0.4s ease;
+
+}
+
+.error{
+  width: 50%;
+  margin: 5px 0px;
+  margin-bottom: 20px;
+  position: absolute;
+  right: 20px;
+  padding: 0px 5px;
+  font-size: 12px;
+  border-radius: 8px;
+  text-align: center;
+  color: #D8000C;
+  background-color: #FFBABA;
+}

@@ -1,0 +1,94 @@
+<div class="container"  *ngFor="let proDetail of projectDeatail">
+  <div class="header"  >
+    <div class="left-header" >
+      <h4>{{proDetail.pro_name}}</h4>
+      <span>ประเภท : {{proDetail.type_name}}</span>
+    </div>
+    <div class="right-header" >
+      <div class="date-start-box">
+        <img src="../../../assets/image/DateImg.png">
+        <span><b> วันที่เริ่มต้น :</b><br>{{proDetail.start_date  | date: 'EEEE, d MMMM, y'}}</span>
+      </div>
+      <div class="date-end-box">
+        <img src="../../../assets/image/DateImg.png">
+        <span><b>วันที่สิ้นสุด :</b><br>{{proDetail.end_date  | date: 'EEEE, d MMMM, y'}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="sub-header">
+    <div class="content-rule-box">
+      <div class="card" >
+        <p-table #dt [value]="projectDeatail">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th style="width: 15%;" >ชื่อกฎเกณฑ์ </th>
+                  <th style="width: 50%;">{{ruleName}}</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-proDetail>
+            <!--  *ngFor="let project of projects | filter:searchText"  -->
+              <tr>
+                  <td>กฎเกณฑ์ที่ 1:</td>
+                  <td>{{proDetail.rule_1}}</td>
+              </tr>
+              <tr>
+                  <td>กฎเกณฑ์ที่ 2:</td>
+                  <td>{{proDetail.rule_2}}</td>
+              </tr>
+              <tr>
+                  <td>กฎเกณฑ์ที่ 3:</td>
+                  <td>{{proDetail.rule_3}}</td>
+              </tr>
+              <tr>
+                <td>กฎเกณฑ์ที่ 4:</td>
+                  <td>{{proDetail.rule_4}}</td>
+              </tr>
+              <tr>
+                <td>กฎเกณฑ์ที่ 5:</td>
+                  <td>{{proDetail.rule_5}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">ไม่มีกรรมการในโครงการ.</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div class="content-director-box">
+      <div class="scoredate">
+        <span >กำหนดเริ่มต้นให้คะแนน <span class="start">{{scoreStart  | date: 'EEEE, d MMMM, y'}}</span></span>
+        <span>กำหนดสิ้นสุดให้คะแนน <span class="end">{{scoreEnd  | date: 'EEEE, d MMMM, y'}}</span></span>
+      </div>
+      <div class="director-list">
+        <div class="card" >
+          <p-table #dt [value]="refereeInPro" [paginator]="true" [rows]="4" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 30%;">ชื่อกรรมการ </th>
+                    <th style="width: 50%;">Email </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-referee>
+              <!--  *ngFor="let project of projects | filter:searchText"  -->
+                <tr>
+                    <td>{{referee.fname}} {{referee.lname}}</td>
+                    <td>{{referee.email}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="1">ไม่มีกรรมการในโครงการ.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+      </div>
+    </div>
+  <div class="page">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,318 @@
+<div class="container" >
+
+  <div class="content" >
+    <div class="leftcontent">
+      <div class="buttoncreate">
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="buttoncreate">
+              <i class="fas fa-plus"></i>  Create </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-l">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Create Project</h2><p class="modal-page">Page {{pageNum}} of 2</p>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="projectDetailForm" (ngSubmit)="onSubmit()">
+                         <!-- popupcontent -->
+                      <div class="page1-box" *ngIf="active1">
+                            <div class="pro-name-box">
+                              <label for="project_name" class="form-label">ชื่อโครงการ :</label>
+                              <input type="text" class="form-control" id="project_name" formControlName="pro_name">
+                            </div>
+                            <div class="pro-type-box">
+                              <label for="exampleFormControlInput1" class="form-label">ประเภทโครงการ :</label>
+                              <select class="form-select" aria-label="Default select example" formControlName="pro_type_id">
+                                <option value="1" selected>ไม่ต่อเนื่อง</option>
+                                <option value="2">ต่อเนื่อง</option>
+                              </select>
+                            </div>
+                            <div class="box">
+                              <div class="pro-date-box">
+                                <h3>วันที่เริ่มต้น-วันที่สิ้นสุด:</h3>
+                                <div class="date-box">
+                                      <mat-form-field appearance="fill">
+                                        <mat-label>วันที่เริ่มต้น-วันที่สิ้นสุด :</mat-label>
+                                        <mat-date-range-input  [rangePicker]="picker1">
+                                          <input matStartDate formControlName="start_date" placeholder="Start date">
+                                          <input matEndDate formControlName="end_date" placeholder="End date">
+                                        </mat-date-range-input>
+                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                        <mat-date-range-picker #picker1></mat-date-range-picker>
+                                        <mat-error *ngIf="projectDetailForm.controls.start_date.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                                        <mat-error *ngIf="projectDetailForm.controls.end_date.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                                      </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="pro-date-box">
+                                <h3>เริ่มต้นส่งผลงาน-สิ้นสุดส่งผลงาน :</h3>
+                                  <div class="date-box">
+                                        <mat-form-field appearance="fill" >
+                                          <mat-label>เริ่มต้นส่งผลงาน :</mat-label>
+                                          <mat-date-range-input  [rangePicker]="picker2" >
+                                            <input matStartDate formControlName="submit_start" placeholder="เริ่มต้นส่งผลงาน">
+                                            <input matEndDate formControlName="submit_end" placeholder="สิ้นสุดส่งผลงาน">
+                                          </mat-date-range-input>
+                                          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                          <mat-date-range-picker #picker2></mat-date-range-picker>
+                                          <mat-error *ngIf="projectDetailForm.controls.submit_start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                                          <mat-error *ngIf="projectDetailForm.controls.submit_end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                                        </mat-form-field>
+                                  </div>
+                              </div>
+                              <div class="pro-date-box">
+                                <h3>เริ่มต้นให้คะแนน-สิ้นสุดให้คะแนน :</h3>
+                                <div class="date-box">
+                                  <mat-form-field appearance="fill">
+                                    <mat-label>วันที่เริ่มให้คะแนน :</mat-label>
+                                    <mat-date-range-input  [rangePicker]="picker3">
+                                      <input matStartDate formControlName="score_start" placeholder="เริ่มต้นให้คะแนน">
+                                      <input matEndDate formControlName="score_end" placeholder="สิ้นสุดให้คะแนน">
+                                    </mat-date-range-input>
+                                    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                    <mat-date-range-picker #picker3></mat-date-range-picker>
+                                    <mat-error *ngIf="projectDetailForm.controls.score_start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                                    <mat-error *ngIf="projectDetailForm.controls.score_end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                              <div class="image-page1"><img src="../../assets/image/writing.png" style="width: 150px; height: 150px;"></div>
+                            </div>
+
+                          <div class="btn-next">
+                            <button type="button" class="btn btn-primary" (click)="active1=false; active2=true; pageNum=2;">Next</button>
+                          </div>
+                      </div>
+                      <div class="page2-box" *ngIf="active2">
+                          <div class="rule-box">
+                            <div class="button-selectrule">
+                             <div class="btn-group" role="group" aria-label="Basic outlined example">
+                               <button type="button" class="newrule-tab" (click)="createRuleView = true">สร้างกฎเกณฑ์ใหม่</button>
+                               <button type="button" class="fordatarule-tab" (click)="createRuleView = false">เลือกกฎเกณฑ์ที่มีอยู่</button>
+                             </div>
+                           </div>
+                           <div class="new-rule" *ngIf="createRuleView else elseRulefrmData">
+                              <div class="leftrule-box">
+                                  <div class="mb-3">
+                                    <label for="ruleName" class="form-label">ชื่อกฎเกณฑ์ :</label>
+                                    <input type="text" class="form-control" id="ruleName" formControlName="rule_name">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">คำอธิบาย</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+                                  </div>
+                              </div>
+                              <div class="rightrule-box">
+                                    <div class="mb-1">
+                                      <label for="rule1" class="form-label">กฎเกณฑ์ที่ 1 :</label>
+                                      <input type="text" class="form-control" id="rule1" formControlName="rule_1">
+                                    </div>
+                                    <div class="mb-1">
+                                      <label for="rule2" class="form-label">กฎเกณฑ์ที่ 2 :</label>
+                                      <input type="text" class="form-control" id="rule2" formControlName="rule_2">
+                                    </div>
+                                    <div class="mb-1">
+                                      <label for="rule3" class="form-label">กฎเกณฑ์ที่ 3 :</label>
+                                      <input type="text" class="form-control" id="rule3" formControlName="rule_3">
+                                    </div>
+                                    <div class="mb-1">
+                                      <label for="rule4" class="form-label">กฎเกณฑ์ที่ 4 :</label>
+                                      <input type="text" class="form-control" id="rule4" formControlName="rule_4">
+                                    </div>
+                                    <div class="mb-1">
+                                      <label for="rule5" class="form-label">กฎเกณฑ์ที่ 5 :</label>
+                                      <input type="text" class="form-control" id="rule5" formControlName="rule_5">
+                                    </div>
+                              </div>
+                           </div>
+                           <ng-template #elseRulefrmData>
+                             <div class="rulefromData">
+                                <div class="leftrule-box">
+                                    <div class="mb-3" >
+                                      <label for="exampleFormControlTextarea1" class="form-label">กรุณาเลือกกฎเกณฑ์</label>
+                                      <select class="form-select" aria-label="Default select example" formControlName="rule_name" #ruleselect  (change)="rule(ruleselect.value)">
+                                        <option *ngFor="let rule of ruleList let i = index" [value]="i">{{rule.rule_name}}</option>
+                                      </select>
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleFormControlTextarea1" class="form-label" >คำอธิบาย</label>
+                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" ([value])="ruleList[ruleId].description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="rightrule-box">
+                                  <div class="mb-1">
+                                    <label for="rule1" class="form-label">กฎเกณฑ์ที่ 1 :</label>
+                                    <input type="text" class="form-control" id="rule1" formControlName="rule_1"  [(value)]="ruleList[ruleId].rule_1">
+                                  </div>
+                                  <div class="mb-1">
+                                    <label for="rule2" class="form-label">กฎเกณฑ์ที่ 2 :</label>
+                                    <input type="text" class="form-control" id="rule2" formControlName="rule_2"  [(value)]="ruleList[ruleId].rule_2">
+                                  </div>
+                                  <div class="mb-1">
+                                    <label for="rule3" class="form-label">กฎเกณฑ์ที่ 3 :</label>
+                                    <input type="text" class="form-control" id="rule3" formControlName="rule_3" [(value)]="ruleList[ruleId].rule_3">
+                                  </div>
+                                  <div class="mb-1">
+                                    <label for="rule4" class="form-label">กฎเกณฑ์ที่ 4 :</label>
+                                    <input type="text" class="form-control" id="rule4" formControlName="rule_4" [(value)]="ruleList[ruleId].rule_4">
+                                  </div>
+                                  <div class="mb-1">
+                                    <label for="rule5" class="form-label">กฎเกณฑ์ที่ 5 :</label>
+                                    <input type="text" class="form-control" id="rule5" formControlName="rule_5" [(value)]="ruleList[ruleId].rule_5">
+                                  </div>
+                                  </div>
+                           </div>
+                           </ng-template>
+                     </div>
+
+                          <div class="btn-next">
+                            <button type="button" class="btn btn-primary" (click)="active1=true;active2=false; pageNum=1;" >Previous</button>
+                            <button type="submit" class="btn btn-success" >Create</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
+                     <!-- <div class="modal-footer">
+                    {{this.projectDetailForm.value | json}}
+                  </div> -->
+                </div>
+              </div>
+            </div>
+      </div>
+    <div class="director-box" *ngFor="let user of userDeatail">
+       <h5>รายชื่อละเอียดผู้ใช้งาน</h5>
+        <div class="director-name" >
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-id-card" ></i></span>
+             <input type="text" pInputText placeholder="Username"disabled [value]="user.username">
+          </div>
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user" ></i></span>
+             <input type="text" pInputText placeholder="Username"disabled value="{{user.fname}} {{user.lname}}">
+          </div>
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-envelope" ></i></span>
+             <input type="text" pInputText placeholder="Username"disabled [value]="user.email">
+          </div>
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-phone" ></i></span>
+             <input type="text" pInputText placeholder="Username"disabled [value]="user.tel">
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="rightcontent" >
+    <div class="header-project-list" >
+    <h1>โครงการที่เข้าร่วมแล้ว</h1>
+    </div>
+  <div class="card" >
+    <p-table #dt1 [value]="userInPro" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0" [globalFilterFields]="['pro_name','pro_type','start_date','status','rolename']">
+      <ng-template pTemplate="caption" >
+         <div class="p-d-flex">
+           <span class="p-input-icon-left" style="width: 100%;">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search..." style="width: 50%;border-radius: 10px"/>
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" >
+          <tr>
+              <th pSortableColumn="pro_name">ชื่อโครงการ <p-sortIcon field="pro_name"></p-sortIcon></th>
+              <th pSortableColumn="pro_type">ประเภท <p-sortIcon field="pro_type"></p-sortIcon></th>
+              <th pSortableColumn="start_date">วันที่เริ้มต้น<p-sortIcon field="start_date"></p-sortIcon></th>
+              <th pSortableColumn="status">สถานะ<p-sortIcon field="status"></p-sortIcon></th>
+              <th pSortableColumn="rolename">หน้าที่<p-sortIcon field="rolename" ></p-sortIcon></th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-userInPro>
+        <!--  *ngFor="let project of projects | filter:searchText"  -->
+          <tr>
+              <td>{{userInPro.pro_name}}</td>
+              <td>{{userInPro.pro_type}}</td>
+              <td>{{userInPro.start_date | date: 'd MMM, y'}}</td>
+              <td id="status-color">
+                <span *ngIf="userInPro.status == true" [ngStyle]="{'background-color': (userInPro.status == true) ? '#52BE80' : ''}"
+                >เข้าร่วมแล้ว</span>
+                <span *ngIf="userInPro.status == false" [ngStyle]="{'background-color': (userInPro.status == false) ? '#F4D03F' : ''}"
+                >กำลังรออนุมัติ</span></td>
+              <td id="role-color">
+                <span *ngIf="userInPro.rolename == 'adminPro'" [ngStyle]="{'background-color': (userInPro.rolename == 'adminPro') ? '#ffd8b2' : ''}"
+                >ผู้ดูแล</span>
+                <span *ngIf="userInPro.rolename == 'referee'" [ngStyle]="{'background-color': (userInPro.rolename == 'referee') ? '#eccfff' : ''}"
+                >กรรมการ</span>
+                <span *ngIf="userInPro.rolename == 'user'" [ngStyle]="{'background-color': (userInPro.rolename == 'user') ? '#b3e5fc' : ''}"
+                >ผู้ส่งผลงาน</span>
+              </td>
+              <td id="btn-box">
+                <button pButton pRipple type="button" label="View" class="p-button-raised" icon="pi pi-arrow-circle-right" (click)="goProjectPage(userInPro.pro_id)" [disabled]="(!userInPro.status)" ></button>
+                <!-- [ngStyle]="{'background-color': (userInPro.statusUser === 'เข้าร่วมแล้ว') ? '#52BE80' : (userInPro.statusUser === 'ยังไม่เข้าร่วม') ? '#E74C3C ' : (userInPro.statusUser === 'กำลังรออนุมัติ') ? '#F4D03F' : ''}" -->
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="1">No projects found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+  <div class="middle-content">
+    <div class="header-project-list" >
+      <h1>โครงการที่มีทั้งหมด</h1>
+    </div>
+    <div class="card" >
+      <p-table #dt2 [value]="projects" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0" [globalFilterFields]="['pro_name','pro_type_id','start_date','end_date']">
+        <ng-template pTemplate="caption" >
+           <div class="p-d-flex">
+             <span class="p-input-icon-left" style="width: 100%;">
+                      <i class="pi pi-search"></i>
+                      <input pInputText type="text" (input)="applyFilterGlobal2($event, 'contains')" placeholder="Search..." style="width: 50%;border-radius: 10px"/>
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header" >
+            <tr>
+                <th pSortableColumn="pro_name">ชื่อโครงการ <p-sortIcon field="pro_name"></p-sortIcon></th>
+                <th pSortableColumn="pro_type_id">ประเภท <p-sortIcon field="type"></p-sortIcon></th>
+                <th pSortableColumn="start_date">วันที่เริ้มต้น<p-sortIcon field="start_date"></p-sortIcon></th>
+                <th pSortableColumn="end_date">วันที่สิ้นสุด<p-sortIcon field="end_date"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-project>
+          <!--  *ngFor="let project of projects | filter:searchText"  -->
+            <tr>
+                <td>{{project.pro_name}}</td>
+                <td style="padding-left:30px;">
+                  <span *ngIf="project.pro_type_id === 1">ไม่ต่อเนื่อง</span>
+                  <span *ngIf="project.pro_type_id === 2">ต่อเนื่อง</span>
+                </td>
+                <td>{{project.start_date | date: 'd MMM, y'}}</td>
+                <td>{{project.end_date | date: 'd MMM, y'}}</td>
+                <td id="btn-box">
+                  <button pButton pRipple type="button" label="ขอเข้าร่วม" class="p-button-raised" icon="pi pi-arrow-circle-right" (click)="joinProject(project)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="1">
+              There are currently no projects.</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+

@@ -1,0 +1,38 @@
+.content {
+  height: inherit;
+  width: 100%;
+  border-radius: 10px;
+  border: 0.5px solid gray;
+  margin: 0 auto 30px;
+  padding: 10px 20px;
+
+}
+.box {
+  width: 100%;
+  margin: 20px auto;
+  border-bottom: 2px solid gray;
+}
+
+.formtitle {
+  text-align: center;
+  font-size: 30px;
+
+}
+.input-group{
+  justify-content: center;
+}
+.input-group span{
+  width: 20%;
+  font-weight: lighter;
+}
+
+.changePassBox{
+  margin: 20px auto;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.btn button{
+  width: 52%;
+}

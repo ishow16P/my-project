@@ -1,0 +1,29 @@
+.content{
+  padding: 2%;
+  border-radius: 1rem;
+  border: 2px solid #E2E2E2;
+  background-color: #fff;
+  margin-top: 10px;
+
+}
+.content h2{
+  font-size: 22px;
+  padding: 10px 20px 10px 20px;
+  margin-left: 7%;
+}
+.header{
+  width: 100%;
+}
+.card{
+  margin: 10px auto;
+  width: 80%;
+  border-top: 1px solid #E2E2E2;
+}
+.card button{
+  margin: 5px;
+}
+.card span{
+  padding: 3px;
+  border-radius: 10px;
+  font-weight:500;
+}

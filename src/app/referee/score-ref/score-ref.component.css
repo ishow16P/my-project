@@ -1,0 +1,211 @@
+.container{
+  width: 100%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.header{
+  display: block;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  margin-bottom: 1%;
+}
+.content{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.left-content{
+  display: block;
+  width: 70%;
+  height: 580px;
+  margin-right: 1%;
+  background-color: #fff;
+  margin-bottom: 1%;
+}
+.right-content{
+  display: block;
+  width: 29%;
+  height: 580px;
+  background-color: #fff;
+}
+.bottom-content{
+  display: block;
+  width: 100%;
+  height: 130px;
+  background-color: #fff;
+}
+.left-header{
+  display: inline-block;
+  width: 65%;
+  padding: 20px 40px;
+}
+.right-header{
+  display: inline-block;
+  width: 35%;
+  padding: 20px;
+}
+.left-header h3{
+  font-size: 24px;
+  font-weight: bold;
+  color: #7abb3b;
+}
+.right-header h3{
+  font-size: 18px;
+  font-weight: bold;
+  color: #C66F25;
+}
+form{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 20px 50px;
+}
+.scorerule-box{
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+.scorerule-box label{
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 20px;
+}
+.example-radio-group{
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around ;
+}
+.mat-radio-label-content {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  display: inline-block;
+  order: 0;
+  line-height: inherit;
+  padding-left: 1px;
+  padding-right: auto;
+}
+.example-radio-button{
+  width: 10%;
+  padding-right: 5px;
+}
+.projectname-box{margin-top: 20px;}
+.projectname-box,
+.docname-box,
+.docadd-box,
+.desciption-box,
+.btn-box{
+  padding: 10px 30px;
+  height: 100px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.docadd-box,
+.desciption-box{
+  margin-bottom: 20px;
+}
+
+.projectname-box input,
+.docname-box input,
+.docadd-box textarea,
+.desciption-box textarea,
+.btn-box input{
+  display: block;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #555;
+}
+.docadd-box textarea,
+.desciption-box textarea{
+  max-height: 70px;
+}
+.btn-box{
+  display: block;
+}
+.btn-score,
+.btn-back{
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+
+  font-size: 1rem;
+  color: #ffffff;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 3px;
+}
+.btn-score{
+  background-color: #2196F3;
+  border: 1px solid #2196F3;
+  margin-bottom: 10px;
+}
+.btn-score:hover{
+  background-color: #1c80cf;
+}
+.btn-back{
+  background-color: #D32F2F;
+  border: 1px solid #D32F2F;
+}
+.btn-back:hover{
+  background-color: #892020;
+}
+
+.bottom-content{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 1%;
+}
+.showscore-box{
+  display: block;
+  width: 100%;
+  padding: 20px 50px;
+}
+.referee-box,
+.end-date-box{
+  display: block;
+  width: 50%;
+}
+.showscore-box{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.showscore{
+  display: block;
+  width: 20%;
+  padding:10px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+.showscore span{
+  display: block;
+  text-align: center;
+}
+.showscore label{
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #7abb3b;
+}
+#average{
+  color: #C66F25;
+  font-weight: bold;
+
+}
+@media all and (max-width:800px){
+
+}

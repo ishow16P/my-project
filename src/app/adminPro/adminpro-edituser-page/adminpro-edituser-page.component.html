@@ -1,0 +1,38 @@
+<div class="content">
+  <div class="header">
+    <h2>จัดการสมาชิก</h2>
+  </div>
+  <div class="card">
+    <p-table #dt [value]="userList" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="fname" style="width: 20%;">ชื่อ <p-sortIcon field="fname"></p-sortIcon></th>
+              <th pSortableColumn="email" style="width: 20%;">อีเมลล์<p-sortIcon field="type"></p-sortIcon></th>
+              <th pSortableColumn="rolename" style="width: 20%; text-align: center;">สถานะ<p-sortIcon field="rolename"></p-sortIcon></th>
+              <th style="width: 20%; text-align: center;"></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+          <tr>
+              <td>{{user.fname}} {{user.lname}}</td>
+              <td >{{user.email}}</td>
+              <td style="text-align: center;">
+                <span *ngIf="user.rolename === 'adminPro'" [ngStyle]="{'background-color': (user.rolename == 'adminPro') ? '#ffd8b2' : ''}">Admin Project</span>
+                <span *ngIf="user.rolename === 'referee'"  [ngStyle]="{'background-color': (user.rolename == 'referee') ? '#c8e6c9' : ''}">Referee</span>
+                <span *ngIf="user.rolename === 'user'"  [ngStyle]="{'background-color': (user.rolename == 'user') ? '#b3e5fc' : ''}">User</span>
+              </td>
+              <td style="text-align: center;">
+                <button pButton pRipple type="button" label="ลบ" class="p-button-danger" style="width: 25%;height: 30px;" *ngIf="user.rolename != 'adminPro'" (click)="removeUser(user)"></button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="1">ไม่มีผู้ใช้งานในโครงการ.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+

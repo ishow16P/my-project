@@ -1,0 +1,46 @@
+.content{
+  padding: 2%;
+  border-radius: 1rem;
+  background-color: #fff;
+  border: 2px solid #E2E2E2;
+  margin-top: 10px;
+}
+.header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.left-header,
+.right-header{
+  display: block;
+  width: 50%;
+}
+.header h2{
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 20px 10px 20px;
+  margin: 0px;
+}
+.right-header i{
+  width: 90%;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+}
+.right-header i:hover{
+  color: #E2E2E2;
+}
+.card{
+  padding: 10px 20px;
+  border-top: 1px solid #E2E2E2;
+}
+.card span{
+  padding: 3px;
+  border-radius: 10px;
+  font-weight:500;
+}

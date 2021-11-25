@@ -1,0 +1,36 @@
+.container{
+  min-height: 81.2vh;
+  max-height: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #fff;
+}
+.panelmenu{
+  display: block;
+  width: 20%;
+  min-width: 150px;
+  padding: 10px;
+}
+.p-panelMenu{
+  width: 100%;
+}
+.page{
+  display: block;
+  width: 80%;
+}
+@media all and (max-width: 1000px){
+  .panelmenu{
+    display: block;
+    width: 100%;
+    padding: 10px;
+  }
+  .p-panelMenu{
+    width: 100%;
+  }
+  .page{
+    display: block;
+    width: 100%;
+  }
+}
+

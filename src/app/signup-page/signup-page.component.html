@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="content">
+    <div class="left-content">
+            <div class="welcom-text">
+                <h1>Welcome Back!</h1>
+            </div>
+            <div class="signin-btn">
+              <a routerLinkActive="active" routerLink="/login-page"><button>SIGN IN</button></a>
+            </div>
+    </div>
+    <div class="right-content">
+            <div class="head-text">
+                <h1>Create Accout</h1>
+            </div>
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit(password1.value,password2.value)">
+                <div class="input-group box-username">
+                  <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText formControlName="username" required >
+                    <label for="float-input">Username</label>
+                  </span>
+                <div *ngIf="usernameError">
+                  <label for="" class="error">*{{errorMsg}}</label>
+                </div>
+                </div>
+                <div class="input-group box-fname">
+                  <span class="p-float-label">
+                    <input id="float-input1" type="text" pInputText formControlName="fname" required>
+                    <label for="float-input1">Fristname</label>
+                </span>
+                </div>
+                <div class="input-group box-lname">
+                  <span class="p-float-label">
+                    <input id="float-input2" type="text" pInputText formControlName="lname" required>
+                    <label for="float-input2">Lastname</label>
+                </span>
+                </div>
+                <div class="input-group box-Email">
+                  <span class="p-float-label">
+                    <input id="float-input3" type="text" pInputText formControlName="email" required>
+                    <label for="float-input3">E-mail</label>
+                  </span>
+                  <div *ngIf="emailError">
+                    <label for="" class="error">*{{errorMsg}}</label>
+                  </div>
+                </div>
+                <div class="input-group box-tell">
+                  <span class="p-float-label">
+                    <input id="float-input4" class="tell" type="text" pInputText formControlName="tel">
+                    <label for="float-input4">Tel</label>
+                </span>
+                </div>
+                <div class="input-group box-password1">
+                  <div class="p-field">
+                    <label for="password">Password :</label>
+                    <input type="password" pInputText
+                      id="password1" #password1 required formControlName="password">
+                    <i (click)="togglePassService('password1','togglePassword1')" class="fas fa-eye-slash" id="togglePassword1"></i>
+                </div>
+                </div>
+                <div class="input-group box-password2">
+                  <div class="p-field">
+                    <label for="password">Confirm Password :</label>
+                    <input type="password" pInputText
+                      id="password2"  #password2 required>
+                    <i (click)="togglePassService('password2','togglePassword2')" class="fas fa-eye-slash" id="togglePassword2"></i>
+                </div>
+                </div>
+                <div class="signup-btn">
+                    <button type="submit" class="btn"[disabled]="!userForm.valid">SIGN UP</button>
+                </div>
+            </form>
+    </div>
+</div>
+</div>

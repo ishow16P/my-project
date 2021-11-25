@@ -1,0 +1,28 @@
+<div class="document-detail">
+  <div class="status-send-box" >
+    <h2>ผลงาน</h2>
+    <div class="boxstatus">
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">ชื่อผลงาน</span>
+        <input id="docStatus" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{document.doc_name}}" >
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">วันที่ส่งผลงาน</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{document.doc_date |  date: 'EEEE, d MMMM, y' }}">
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">ที่อยู่ผลงาน</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{document.doc_address}}">
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">สมากชิก</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{document.members}}">
+      </div>
+    </div>
+
+  </div>
+  <div class="btn-box">
+    <button type="button" class="btn btn-primary" (click)="goScorePage()">ให้คะแนน</button>
+    <button type="button" class="btn btn-danger" (click)="goBackPage()">ย้อนกลับ</button>
+  </div>
+</div>

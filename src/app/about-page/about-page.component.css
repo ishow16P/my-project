@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+}
+.main{
+  margin-bottom: 50px;
+}
+.divmain {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: 550px;
+  max-width: 100%;
+
+  background-image:url('https://dlcdnimgs.asus.com/websites/global/productcustomizedTab/5384/v1/main/images/large/1x/kv_banner.jpg');
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+
+.text-title {
+  font-family: "Myriad W01_n2", "Myriad W01", "Segoe UI", sans-serif !important;
+  font-weight: 300;
+
+  color: white;
+  text-align: center;
+
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.text-info {
+  font-family: 'Prompt', sans-serif;
+  font-weight: lighter;
+  font-style: normal;
+
+  color: white;
+  text-align: center;
+
+  margin-top: 11px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.text--info {
+  font-family: 'Prompt', sans-serif;
+  font-weight: lighter;
+  font-style: normal;
+
+  color: white;
+  text-align: center;
+
+  margin-top: 11px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.banner_text {
+  position: absolute;
+  top: 50%;
+  left: 47.5%;
+  margin-left: -300px;
+  width: 700px;
+  color: white;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.info {
+  color: white;
+}
+
+.divmain img:hover{
+  transform:scale(1.1);
+-ms-transform:scale(1.1); /* IE 9 */
+-moz-transform:scale(1.1); /* Firefox */
+-webkit-transform:scale(1.1); /* Safari and Chrome */
+-o-transform:scale(1.1); /* Opera */
+}
+
+
+.container {
+  font-family: "Myriad W01_n1", "Myriad W01", "Segoe UI", sans-serif !important;
+  font-weight: 100;
+  font-style: normal;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+
+}
+
+.img {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.col {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+
+
+}
+
+.p-ad1 {
+  font-size: 22px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: #6b6b6b;
+
+font-family: "Myriad W01_n2", "Myriad W01", "Segoe UI", sans-serif !important;
+font-weight: 200;
+font-style: normal;
+
+text-align: center;
+line-height: 1.3;
+}
+
+.p-ad2 {
+   font-family: "Myriad W01_n1", "Myriad W01", "Segoe UI", sans-serif !important;
+  font-weight: 100;
+  font-style: normal;
+  margin: 15px auto 0;
+  width: 97%;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6d6b6b;
+}

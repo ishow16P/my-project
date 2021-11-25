@@ -1,0 +1,44 @@
+<div class="content">
+  <div class="header">
+    <div class="left-header">
+      <h2>Edit User</h2>
+    </div>
+    <div class="right-header">
+      <i class="pi pi-arrow-left" [routerLink]="['/admin/users-list']" routerLinkActive="router-link-active"></i>
+    </div>
+  </div>
+  <form [formGroup]="edituserform" (ngSubmit)="onSubmit()">
+    <div class="input-box">
+      <label >Accout Name :</label>
+      <input type="text"  pInputText formControlName="username"  [attr.disabled]="true">
+    </div>
+    <div class="input-box">
+      <label>Fristname :</label>
+      <input type="text"  pInputText formControlName="fname">
+    </div>
+    <div class="input-box">
+      <label>Lastname :</label>
+      <input type="text"  pInputText formControlName="lname">
+    </div>
+    <div class="input-box">
+      <label>Email :</label>
+      <input type="text"  pInputText formControlName="email"  [attr.disabled]="true">
+    </div>
+    <div class="input-box">
+      <label>Tel :</label>
+      <input type="text"  pInputText formControlName="tel">
+    </div>
+    <div class="input-box">
+      <label>สถานะ</label>
+      <select class="form-select" aria-label="Default select example" formControlName="role_id">
+        <option value="1">Admin</option>
+        <option value="2">Referee</option>
+        <option value="3">User</option>
+      </select>
+    </div>
+    <div class="btn-group">
+      <button type="submit">ยืนยันการแก้ไข</button>
+    </div>
+  </form>
+
+</div>

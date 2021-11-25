@@ -1,0 +1,43 @@
+<div class="content">
+  <div class="header">
+    <h2>ผลงานของสมาชิก</h2>
+  </div>
+  <div class="card">
+    <p-table #dt [value]="documentsList" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0" [globalFilterFields]="['doc_name']">
+      <ng-template pTemplate="caption" >
+        <div class="p-d-flex">
+          <span style="font-size: 14px; font-weight: lighter; color: red;">** ผลงานที่ถูกให้คะแนนแล้วจะไม่สามารถลบได้ **</span>
+          <span class="p-input-icon-right" style=" display: flex; justify-content: flex-end;">
+                   <i class="pi pi-search"></i>
+                   <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search...." style="width: 40%;border-radius: 10px;"/>
+         </span>
+       </div>
+     </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="doc_name" style="width: 20%;">ชื่อ <p-sortIcon field="doc_name"></p-sortIcon></th>
+              <th pSortableColumn="doc_date" style="width: 15%;">วันที่ส่ง<p-sortIcon field="doc_date"></p-sortIcon></th>
+              <th style="width: 20%;">สมาชิก </th>
+              <th  style="width: 30%;">ที่อยู่ผลงาน</th>
+              <th ></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-document>
+        <!--  *ngFor="let project of projects | filter:searchText"  -->
+          <tr>
+              <td>{{document.doc_name}}</td>
+              <td>{{document.doc_date |  date: 'd MMM, y'}}</td>
+              <td>{{document.members}}</td>
+              <td style="font-size: 14px;">{{document.doc_address}}</td>
+              <td style="text-align: center;"><button pButton pRipple type="button" label="ลบ" class="p-button-danger" style="width: 60%;height: 30px;" (click)="deleteDoc(document.user_id,document.pro_id)" ></button></td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="1">ไม่มีผลงานในโครงการ.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="content">
+  <div class="box"><h2 class="formtitle">Change Password</h2></div>
+  <div class="changePassBox">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Old Password</span>
+      <p-password [(ngModel)]="oldpass" [toggleMask]="true"></p-password>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">New Password</span>
+      <p-password [(ngModel)]="newpass" [toggleMask]="true"></p-password>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Confirm Password</span>
+      <p-password [(ngModel)]="confpass" [toggleMask]="true"></p-password>
+    </div>
+    <div class="btn">
+      <button type="button" class="btn btn-primary"(click)="ChangePass()">บันทึก</button>
+    </div>
+  </div>
+
+</div>

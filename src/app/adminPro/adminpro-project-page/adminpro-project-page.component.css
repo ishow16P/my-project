@@ -1,0 +1,177 @@
+::ng-deep .cdk-overlay-container {
+  z-index: 1200 !important;
+}
+.container{
+  width: 100%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: inherit;
+}
+.leftcontent,
+.rightcontent{
+  display: block;
+  width: 50%;
+  padding: 10px;
+ background-color: #fff;
+}
+.middle_content{
+  display: block;
+  width: 100%;
+}
+
+.Pro_detail,
+.refereeBox{
+  padding: 10px;
+  padding-bottom: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border: 2px solid #E2E2E2;
+  border-radius: 10px;
+
+}
+.refereetext{
+  display: block;
+  width: 100% ;
+}
+.card{
+  height: 400px;
+}
+.pro_detail{
+  padding-left: 20px;
+  color: #111;
+  font-size: 22px;
+}
+.pro-detailBox{
+  border: 2px solid #E2E2E2;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.pro_name,
+.pro_type,
+.date{
+  margin: 10px 20px;
+}
+.ruleName{margin: 20px 20px;}
+.rule_deltai{margin: 0px 20px;}
+.rule_de{margin-top: 5px;}
+.ruledetail{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.rule_de{
+  display: block;
+}
+.ruledetail span{
+  display: block;
+  width: 100%;
+}
+span {
+  font-size: 16px;
+}
+.btn-group1{
+  margin: 40px auto;
+  position: relative;
+  right: 0;
+
+  width: 80%;
+
+}
+.btn-group1 button{
+  width: 100%;
+  height: 35px;
+  color: white;
+  font-size: 16px;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  border-radius: 10px;
+  transition: ease all 0.3;
+}
+.btn-group1 button:hover{
+  background-color: #FFD454;
+}
+.refereeBox{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.refereetext{
+  color: #888;
+  font-size: 22px;
+}
+form{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.p-field,
+.btn_add{
+  display: block;
+  width: 50%;
+  margin-bottom: 20px;
+}
+.p-field input{
+  width: 100%;
+}
+.btn_add{
+  padding-top: 20px;
+  padding-left: 30px;
+}
+.btn-primary{
+  width: 80%;
+}
+.card{
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+.card2{
+  padding-left: 30%;
+  padding-right: 30%;
+  background-color: #fff;
+}
+.p-tabmenu-nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  flex-wrap: nowrap;
+
+
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+
+
+}
+.p-tabmenu .p-tabmenu-nav {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-width: 0 0 2px 0;
+
+}
+

@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="header">
+    <div class="left-header">
+      <h3>ให้คะแนนผลงาน</h3>
+    </div>
+    <div class="right-header" *ngFor="let scorePage of scorePageDetail">
+      <h3>วันที่สิ้นสุดการให้คะแนน : {{scorePage.score_end |date: 'd MMM, y'}}</h3>
+    </div>
+  </div>
+  <div class="content">
+    <div class="left-content">
+      <form [formGroup]="scoreFrom" *ngFor="let scorePage of scorePageDetail">
+        <div class="scorerule-box">
+          <label id="rule1">กฎเกณฑ์ที่ 1 : {{scorePage.rule_1}}</label>
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          formControlName="score_1">
+          <mat-radio-button class="example-radio-button" *ngFor="let score of scores" [value]="score" >
+            {{score}}
+          </mat-radio-button>
+        </mat-radio-group>
+        </div>
+        <div class="scorerule-box">
+          <label id="rule1">กฎเกณฑ์ที่ 2 : {{scorePage.rule_2}}</label>
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+           formControlName="score_2">
+          <mat-radio-button class="example-radio-button" *ngFor="let score of scores" [value]="score" >
+            {{score}}
+          </mat-radio-button>
+        </mat-radio-group>
+        </div>
+        <div class="scorerule-box">
+          <label id="rule1">กฎเกณฑ์ที่ 3 : {{scorePage.rule_3}}</label>
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          formControlName="score_3">
+          <mat-radio-button class="example-radio-button" *ngFor="let score of scores" [value]="score" >
+            {{score}}
+          </mat-radio-button>
+        </mat-radio-group>
+        </div>
+        <div class="scorerule-box">
+          <label id="rule1">กฎเกณฑ์ที่ 4 : {{scorePage.rule_4}}</label>
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          formControlName="score_4">
+          <mat-radio-button class="example-radio-button" *ngFor="let score of scores " [value]="score" >
+            {{score}}
+          </mat-radio-button>
+        </mat-radio-group>
+        </div>
+        <div class="scorerule-box">
+          <label id="rule1">กฎเกณฑ์ที่ 5 : {{scorePage.rule_5}}</label>
+          <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          formControlName="score_5">
+          <mat-radio-button class="example-radio-button" *ngFor="let score of scores " [value]="score" >
+            {{score}}
+          </mat-radio-button>
+        </mat-radio-group>
+        </div>
+         <!-- <div>{{scoreFrom.value | json}}</div> -->
+      </form>
+    </div>
+    <div class="right-content" *ngFor="let scorePage of scorePageDetail">
+      <div class="projectname-box">
+        <span>ชื่อโครงการ</span>
+        <input type="text" class="form-control" [value]="scorePage.pro_name" disabled >
+      </div>
+      <div class="docname-box">
+        <span>ชื่อผลงาน</span>
+        <input type="text" class="form-control"  [value]="scorePage.doc_name" disabled >
+      </div>
+      <div class="docadd-box">
+        <span>ที่อยู๋ผลงาน</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1"   [value]="scorePage.doc_address" disabled rows="3"></textarea>
+      </div>
+      <div class="desciption-box">
+        <span>สมาชิก</span>
+        <textarea class="form-control" id="exampleFormControlTextarea1"   [value]="scorePage.members" disabled rows="3"></textarea>
+      </div>
+      <div class="btn-box">
+        <button type="submit" class="btn-score" (click)="onSubmit()">ยืนยัน</button>
+        <button type="button" class="btn-back" (click)="goBackPage()">ย้อนกลับ</button>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class="showscore-box" *ngFor="let scorePage of scorePageDetail">
+        <div class="showscore">
+          <span>{{scorePage.rule_1}}</span>
+          <label >{{this.scoreFrom.controls.score_1.value}}&nbsp;คะแนน</label>
+        </div>
+        <div class="showscore">
+          <span>{{scorePage.rule_2}}</span>
+          <label >{{this.scoreFrom.controls.score_2.value}}&nbsp;คะแนน</label>
+        </div>
+        <div class="showscore">
+          <span>{{scorePage.rule_3}}</span>
+          <label >{{this.scoreFrom.controls.score_3.value}}&nbsp;คะแนน</label>
+        </div>
+        <div class="showscore">
+          <span>{{scorePage.rule_4}}</span>
+          <label >{{this.scoreFrom.controls.score_4.value}}&nbsp;คะแนน</label>
+        </div>
+        <div class="showscore">
+          <span>{{scorePage.rule_5}}</span>
+          <label >{{this.scoreFrom.controls.score_5.value}}&nbsp;คะแนน</label>
+        </div>
+        <div class="showscore">
+          <span>คะแนนรวมเฉลี่ย</span>
+          <label id="average">{{
+            (this.scoreFrom.controls.score_1.value +
+            this.scoreFrom.controls.score_2.value +
+            this.scoreFrom.controls.score_3.value +
+            this.scoreFrom.controls.score_4.value +
+            this.scoreFrom.controls.score_5.value) / 5
+          }}&nbsp;คะแนน</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

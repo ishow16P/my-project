@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+}
+.container{
+  width: 100%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+.header{
+  width: 100%;
+  height: 20px;
+  margin: 10px;
+}
+
+.header i, header a{
+  width: 95%;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.2s ease;
+
+}
+
+.header i:hover, .header a:hover{
+  color: #E2E2E2;
+}
+.card{
+  margin-top: 0px;
+  width: 100%;
+}

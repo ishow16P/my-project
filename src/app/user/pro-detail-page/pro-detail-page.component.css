@@ -1,0 +1,244 @@
+*{
+  box-sizing: border-box;
+}
+.contaner{
+  width: 100%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+.header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0.2%;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+}
+.sub-header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 1%;
+  justify-content: space-around;
+}
+.status-send-box{
+  width: 100%;
+  height: inherit;
+  background-color: #fff;
+}
+
+.left-header,
+.right-header{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.left-header h4{
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  padding-left: 10%;
+}
+.left-header span{
+  width: 80%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 10%;
+}
+.date-start-box,
+.date-end-box{
+  width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.date-end-box{
+  justify-content: flex-start;
+}
+.dateText{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+
+}
+.date-start-box img,
+.date-end-box img{
+  width: 50px;
+  height: 50px;
+}
+.date-start-box span,
+.date-end-box span,
+.date-start-box span,
+.date-end-box span{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 70%;
+  font-size: 16px;
+  font-weight: lighter;
+}
+.content-rule-box{margin-right: .2%;}
+.content-director-box,
+.content-rule-box{
+  display: block;
+  width: 49.9%;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+}
+.director-list{
+  display: block;
+}
+.director-list h3{
+  font-size: 18px;
+  color: #7abb3b;
+  font-weight: bold;
+  margin: 20px 20px 10px;
+}
+.director-list span{
+  display: block;
+  margin-bottom: 15px;
+  font-size: 18px;
+  padding-left: 20%;
+
+
+}
+.card{
+  width: 90%;
+  margin: 20px auto;
+}
+
+
+
+.content-rule-box{
+  display: block;
+
+}
+.content-rule-box .card{
+  height: inherit;
+}
+
+
+.status-send-box{
+  padding: 20px 10%;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+}
+.status-send-box h4{
+  background-color: #2980B9;
+  color: #fff;
+  padding: 5px 20px;
+  margin-bottom: 0;
+
+}
+.status-send-box .input-group span{
+  width: 15%;
+  background-color:#F2F3F4 ;
+
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 400px;
+  background-color: white;
+  padding: 20px 10%;
+  filter: drop-shadow(0px 2px 2px #999);
+  border: 1px solid white;
+}
+.left-formceate,
+.right-formceate{
+  display: block;
+  width: 50%;
+  height: 270px;
+}
+
+.left-formceate h3{
+  margin-bottom: 20px;
+}
+form .input-group{
+  width: 90%;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+form .input-group span{
+  width: 25%;
+}
+form .input-group input{
+  width: 75%;
+}
+form .input-group textarea{
+  min-height: 4rem;
+  max-height: 7rem;
+}
+.right-formceate table{
+  width: 100%;
+}
+.right-formceate th,
+.right-formceate tr{
+ padding: 0px 0px;
+}
+.p-inputtext {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  color: #495057;
+  background: #ffffff;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid #ced4da;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+}
+form .bin-create-group{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+form .bin-create-group button{
+  width: 20%;
+  height: 40px;
+  margin: 0 20px;
+  position: relative;
+  right: 0%;
+}
+.low-conent{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #fff;
+  filter: drop-shadow(0px 2px 2px #999);
+  margin-top: 10px;
+}
+.low-conent .btn-group,
+.low-conent .viewscore-box{
+  display: block;
+  width: 50%;
+  padding: 10px 20px;
+}
+.low-conent button{
+  color: white;
+  margin-left: 20px;
+}

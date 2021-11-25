@@ -1,0 +1,44 @@
+
+
+.maindiv {
+  height: inherit;
+  width: 100%;
+  border-radius: 10px;
+  border: 0.5px solid gray;
+  margin: 0 auto 30px;
+  padding: 10px 20px;
+
+}
+
+
+.box {
+  width: 100%;
+  margin: 20px auto;
+  border-bottom: 2px solid gray;
+}
+
+.formtitle {
+  text-align: center;
+  font-size: 30px;
+
+}
+.input-group span{
+  padding: 10px;
+  font-size: 16px;
+  font-weight: lighter;
+  width: 20%;
+  text-align: center;
+}
+.input-group input{
+  font-weight: lighter;
+}
+.btn{
+  width: 100%;
+}
+.btn button{
+  color: #fff;
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  font-weight: 700;
+}

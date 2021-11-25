@@ -1,0 +1,69 @@
+
+  <div class="maindiv">
+        <div class="box"><h2 class="formtitle">Account Details</h2></div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Usermame</span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled [value]="user.username">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Fristname</span>
+            <input type="text" class="form-control" placeholder="Fristname" aria-label="Fristname" aria-describedby="basic-addon1" disabled [value]="user.fname">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Lastname</span>
+            <input type="text" class="form-control" placeholder="Lastname" aria-label="Lastname" aria-describedby="basic-addon1" disabled [value]="user.lname">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" disabled [value]="user.email">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Tel</span>
+            <input type="text" class="form-control" placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1" disabled [value]="user.tel">
+          </div>
+          <div class="btn">
+            <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">แก้ไขข้อมูล</button>
+          </div>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 16px;">Account Setting</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Usermame</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" formControlName="username"  [attr.disabled]="true">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Fristname</span>
+                    <input type="text" class="form-control" placeholder="Fristname" aria-label="Fristname" aria-describedby="basic-addon1" formControlName="fname" >
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Lastname</span>
+                    <input type="text" class="form-control" placeholder="Lastname" aria-label="Lastname" aria-describedby="basic-addon1" formControlName="lname">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" formControlName="email" [attr.disabled]="true">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Tel</span>
+                    <input type="text" class="form-control" placeholder="Tel" aria-label="Tel" aria-describedby="basic-addon1" formControlName="tel">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning" style="color: #fff;">บันทึกการแก้ไข</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+  </div>
+

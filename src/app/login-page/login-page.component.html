@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="content">
+    <header>
+        <h1>Log In</h1>
+        <p>New to this site? <a routerLink="/signup-page"> Sign Up</a></p>
+    </header>
+    <section>
+      <form [formGroup]="loginForm">
+          <div class="p-field">
+            <label for="username2">Username :</label>
+            <input type="text" pInputText formControlName="username">
+          </div>
+          <div class="p-field">
+                <label for="password">Password :</label>
+                <input type="password" pInputText id="password" formControlName="password">
+                <i (click)="togglePassService('password','togglePassword')" class="fas fa-eye-slash" id="togglePassword"></i>
+            </div>
+            <div *ngIf="errorMsg" ([ngModel])="Msg" class="error">{{Msg}}</div>
+            <!-- <a href="#">Forget Password?</a> -->
+            <div class="input-group">
+                <button type="button" name="log_user" class="btn" [disabled]="" (click)=checkLogin()>Log in</button>
+            </div>
+      </form>
+    </section>
+  </div>
+</div>

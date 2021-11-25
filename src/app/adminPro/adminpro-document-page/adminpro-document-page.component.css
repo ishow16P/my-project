@@ -1,0 +1,20 @@
+.content{
+  padding: 2%;
+  border-radius: 1rem;
+  background-color: #fff;
+  border: 2px solid #E2E2E2;
+  margin-top: 5px;
+}
+.header{
+  width: 100%;
+}
+.header h2{
+  font-size: 22px;
+  padding: 10px 20px 10px 20px;
+  margin-left: 7%;
+}
+.card{
+  margin: 10px auto;
+  width: 80%;
+  border-top: 1px solid #E2E2E2;
+}

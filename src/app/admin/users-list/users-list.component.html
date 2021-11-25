@@ -1,0 +1,51 @@
+<div class="content">
+  <div class="header">
+    <h2>Users Manage</h2>
+  </div>
+  <div class="card" >
+    <p-table #dt [value]="users" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0" [globalFilterFields]="['name','type','project_start','status']">
+      <ng-template pTemplate="caption" >
+         <div class="p-d-flex">
+           <span class="p-input-icon-left" style="width: 100%;">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search..." style="width: 40%;border-radius: 10px"/>
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" >
+          <tr>
+              <th pSortableColumn="username">Username<p-sortIcon field="username"></p-sortIcon></th>
+              <th pSortableColumn="fristname">Frisname<p-sortIcon field="fristname"></p-sortIcon></th>
+              <th pSortableColumn="email">E-mail<p-sortIcon field="email"></p-sortIcon></th>
+              <th pSortableColumn="role">Role<p-sortIcon field="role"></p-sortIcon></th>
+              <th >Option</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <!--  *ngFor="let project of projects | filter:searchText"  -->
+          <tr>
+              <td>{{user.username}}</td>
+              <td>{{user.fname}} {{user.lname}}</td>
+              <td id="email-color">{{user.email}}</td>
+              <td id="role-color" style="padding-left:20px">
+                <span *ngIf="user.role_id === 1"  [ngStyle]="{'background-color': (user.role_id == 1) ? '#04B800' : ''}"> Admin</span>
+                <span *ngIf="user.role_id === 2"  [ngStyle]="{'background-color': (user.role_id == 2) ? '#004159' : ''}"> Referee</span>
+                <span *ngIf="user.role_id === 3"  [ngStyle]="{'background-color': (user.role_id == 3) ? '#056AE0' : ''}"> User</span>
+
+              </td>
+              <td id="btn-box">
+                <button pButton pRipple  icon="pi pi-user-edit" (click)="goEditpage(user.id)"></button>
+                <button pButton pRipple  icon="pi pi-trash" class="p-button-danger" (click)="deleteUser(user.id)"></button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="1">No customers found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+

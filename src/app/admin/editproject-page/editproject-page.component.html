@@ -1,0 +1,228 @@
+
+<div class="content">
+  <div class="head-content">
+    <div class="left-header">
+      <h2>จัดการโครงการ</h2>
+    </div>
+    <div class="right-header">
+      <i class="pi pi-arrow-left" [routerLink]="['/admin/projectlist-page']" routerLinkActive="router-link-active"></i>
+    </div>
+  </div>
+  <div class="projectDetail">
+    <div class="left-content">
+      <div class="projectName-box">
+        <span class="input-group-text" id="basic-addon1">ชื่อโครงการ</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.pro_name}}">
+      </div>
+      <div class="projectType-box">
+        <span class="input-group-text" id="basic-addon1">ประเภท</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.type_name}}">
+      </div>
+      <div class="dateStart-box">
+        <span class="input-group-text" id="basic-addon1">ระยะเวลาเริ่มต้น</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.start_date | date:'MMM d, y'}}">
+      </div>
+      <div class="dateEnd-box">
+        <span class="input-group-text" id="basic-addon1">ระยะเวลาสิ้นสุด</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.end_date  | date:'MMM d, y'}}">
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="refereeBox">
+          <div class="p-field">
+            <label for="username1">เพิ่มรายชื่อกรรมการ</label>
+            <input id="username1" type="username" aria-describedby="username1-help" [(ngModel)]="refereeName" pInputText />
+            <small id="username1-help">กรุณาใส่ Username หรือ E-mail ของกรรมการ</small>
+          </div>
+          <div class="btn_add">
+            <button type="button" class="btn btn-primary" (click)="addReferee()">เพิ่ม</button>
+          </div>
+        <div class="card" >
+          <p-table #dt [value]="refereeinPro" [paginator]="true" [rows]="4" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0">
+            <ng-template pTemplate="header" >
+                <tr>
+                    <th style="width: 30%;">Name </th>
+                    <th style="width: 50%;">Email </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-referee>
+              <!--  *ngFor="let project of projects | filter:searchText"  -->
+                <tr>
+                    <td>{{referee.fname}} {{referee.lname}}</td>
+                    <td>{{referee.email}}</td>
+                    <td><button type="button" class="btn btn-danger" (click)="deleteReferee(referee.user_id, referee.fname,referee.lname)">ลบ</button></td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="1">ไม่มีกรรมการในโครงการ.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class="left-box">
+          <div class="rulename-box">
+            <span class="input-group-text" id="basic-addon1">ชื่อกฏเกณฑ์</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.rule_name}}">
+          </div>
+          <div class="rule-box">
+            <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 1</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.rule_1}}">
+          </div>
+          <div class="rule-box">
+            <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 2</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.rule_2}}">
+          </div>
+      </div>
+      <div class="right-box" >
+
+        <div class="rule-box">
+          <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 3</span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.rule_3}}">
+        </div>
+        <div class="rule-box">
+          <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 4</span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.rule_4}}">
+        </div>
+        <div class="rule-box">
+          <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 5</span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{project.rule_5}}">
+        </div>
+      </div>
+      <div class="btn-edit">
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          แก้ไขโครงการ
+        </button>
+      </div>
+    </div>
+    <!-- Modal -->
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">แก้ไขโครงการ</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="projectEditForm" (ngSubmit)="onSubmit()">
+      <div class="modal-body">
+        <div class="left-contentmodal" >
+          <div class="projectNamemodal-box">
+            <span class="input-group-text" id="basic-addon1">ชื่อโครงการ</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="pro_name">
+          </div>
+          <div class="pro-date-box">
+            <h3>วันที่เริ่มต้น-วันที่สิ้นสุด:</h3>
+            <div class="date-box">
+                  <mat-form-field appearance="fill">
+                    <mat-label>วันที่เริ่มต้น-วันที่สิ้นสุด :</mat-label>
+                    <mat-date-range-input  [rangePicker]="picker1">
+                      <input matStartDate formControlName="start_date" placeholder="Start date">
+                      <input matEndDate formControlName="end_date" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker1></mat-date-range-picker>
+                    <mat-error *ngIf="projectEditForm.controls.start_date.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                    <mat-error *ngIf="projectEditForm.controls.end_date.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                  </mat-form-field>
+            </div>
+          </div>
+          <div class="pro-date-box">
+            <h3>เริ่มต้นส่งผลงาน-สิ้นสุดส่งผลงาน :</h3>
+              <div class="date-box">
+                    <mat-form-field appearance="fill" >
+                      <mat-label>เริ่มต้นส่งผลงาน :</mat-label>
+                      <mat-date-range-input  [rangePicker]="picker2" >
+                        <input matStartDate formControlName="submit_start" placeholder="เริ่มต้นส่งผลงาน">
+                        <input matEndDate formControlName="submit_end" placeholder="สิ้นสุดส่งผลงาน">
+                      </mat-date-range-input>
+                      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                      <mat-date-range-picker #picker2></mat-date-range-picker>
+                      <mat-error *ngIf="projectEditForm.controls.submit_start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                      <mat-error *ngIf="projectEditForm.controls.submit_end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                    </mat-form-field>
+              </div>
+          </div>
+
+        </div>
+        <div class="right-contentmodal">
+          <div class="projectTypemodal-box">
+            <span class="input-group-text" id="basic-addon1">ประเภท</span>
+            <select class="form-select" aria-label="Default select example" formControlName="pro_type_id">
+              <option value="1">ไม่ต่อเนื่อง</option>
+              <option value="2">ต่อเนื่อง</option>
+            </select>
+          </div>
+          <div class="pro-date-box">
+            <h3>เริ่มต้นให้คะแนน-สิ้นสุดให้คะแนน :</h3>
+            <div class="date-box">
+              <mat-form-field appearance="fill">
+                <mat-label>วันที่เริ่มให้คะแนน :</mat-label>
+                <mat-date-range-input  [rangePicker]="picker3">
+                  <input matStartDate formControlName="score_start" placeholder="เริ่มต้นให้คะแนน">
+                  <input matEndDate formControlName="score_end" placeholder="สิ้นสุดให้คะแนน">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker3></mat-date-range-picker>
+                <mat-error *ngIf="projectEditForm.controls.score_start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                <mat-error *ngIf="projectEditForm.controls.score_end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+        </div>
+        <div class="bottom-contentmodal">
+          <div class="left-boxmodal">
+              <div class="rulename-box">
+                <span class="input-group-text" id="basic-addon1">ชื่อกฏเกณฑ์</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="rule_name">
+              </div>
+              <div class="desciption-box">
+                <span class="input-group-text" id="basic-addon1">คำอธิบาย</span>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"></textarea>
+              </div>
+          </div>
+          <div class="right-boxmodal">
+            <div class="rule-boxmodal">
+              <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 1</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="rule_1">
+            </div>
+            <div class="rule-boxmodal">
+              <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 2</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="rule_2">
+            </div>
+            <div class="rule-boxmodal">
+              <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 3</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="rule_3">
+            </div>
+            <div class="rule-boxmodal">
+              <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 4</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="rule_4">
+            </div>
+            <div class="rule-boxmodal">
+              <span class="input-group-text" id="basic-addon1">กฏเกณฑ์ที่ 5</span>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="rule_5">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
+      <!-- {{this.projectEditForm.value | json}} -->
+    </div>
+  </div>
+</div>
+</div>
+</div>
+

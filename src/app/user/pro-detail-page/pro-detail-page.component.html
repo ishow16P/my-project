@@ -1,0 +1,231 @@
+<div class="container" *ngFor="let proDetail of projectDeatail">
+  <div class="header"  >
+    <div class="left-header" >
+      <h4>{{proDetail.pro_name}}</h4>
+      <span>ประเภท : {{proDetail.type_name}}</span>
+    </div>
+    <div class="right-header" >
+      <div class="date-start-box">
+        <img src="../../../assets/image/DateImg.png">
+        <span><b> วันที่เริ่มต้น :</b><br>{{proDetail.start_date  | date: 'EEEE, d MMMM, y'}}</span>
+      </div>
+      <div class="date-end-box">
+        <img src="../../../assets/image/DateImg.png">
+        <span><b>วันที่สิ้นสุด :</b><br>{{proDetail.end_date  | date: 'EEEE, d MMMM, y'}}</span>
+      </div>
+    </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title" id="exampleModalLabel" style="font-weight: 600; text-align: center;" >ผลคะแนน</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="card" >
+                    <p-table #dtScore [value]="scoreboard">
+                      <ng-template pTemplate="header">
+                          <tr style="font-size: 14px;">
+                              <th >ชื่อกรรมการ </th>
+                              <th style="text-align: center;">กฎเกณฑ์ที่ 1</th>
+                              <th style="text-align: center;">กฎเกณฑ์ที่ 2</th>
+                              <th style="text-align: center;">กฎเกณฑ์ที่ 3</th>
+                              <th style="text-align: center;">กฎเกณฑ์ที่ 4</th>
+                              <th style="text-align: center;">กฎเกณฑ์ที่ 5</th>
+                              <th >คะแนนรวมเฉลี่ย</th>
+                          </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-score>
+                        <!--  *ngFor="let project of projects | filter:searchText"  -->
+                          <tr>
+                              <td style="text-align: center;">{{score.fname}} {{score.lname}}</td>
+                              <td style="text-align: center;">{{score.score_1}}</td>
+                              <td style="text-align: center;">{{score.score_2}}</td>
+                              <td style="text-align: center;">{{score.score_3}}</td>
+                              <td style="text-align: center;">{{score.score_4}}</td>
+                              <td style="text-align: center;">{{score.score_5}}</td>
+                              <td style="text-align: center;">{{score.scoreAvg}}</td>
+                          </tr>
+                      </ng-template>
+                      <ng-template pTemplate="emptymessage">
+                        <tr>
+                          <td colspan="3">ยังไม่มีผลคะแนน.</td>
+                        </tr>
+                      </ng-template>
+                    </p-table>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+  </div>
+  <div class="sub-header">
+    <div class="content-rule-box">
+      <div class="card" >
+        <p-table #dt [value]="projectDeatail">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th style="width: 15%;" >ชื่อกฎเกณฑ์ </th>
+                  <th style="width: 50%;">{{ruleName}}</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-proDetail>
+            <!--  *ngFor="let project of projects | filter:searchText"  -->
+              <tr>
+                  <td>กฎเกณฑ์ที่ 1:</td>
+                  <td>{{proDetail.rule_1}}</td>
+              </tr>
+              <tr>
+                  <td>กฎเกณฑ์ที่ 2:</td>
+                  <td>{{proDetail.rule_2}}</td>
+              </tr>
+              <tr>
+                  <td>กฎเกณฑ์ที่ 3:</td>
+                  <td>{{proDetail.rule_3}}</td>
+              </tr>
+              <tr>
+                <td>กฎเกณฑ์ที่ 4:</td>
+                  <td>{{proDetail.rule_4}}</td>
+              </tr>
+              <tr>
+                <td>กฎเกณฑ์ที่ 5:</td>
+                  <td>{{proDetail.rule_5}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">ไม่มีกฎเกณฑ์ในโครงการ.</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div class="content-director-box">
+      <div class="director-list">
+        <div class="card" >
+          <p-table #dt [value]="refereeinPro" [paginator]="true" [rows]="4" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 30%;">ชื่อกรรมการ </th>
+                    <th style="width: 50%;">Email </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-referee>
+              <!--  *ngFor="let project of projects | filter:searchText"  -->
+                <tr>
+                    <td>{{referee.fname}} {{referee.lname}}</td>
+                    <td>{{referee.email}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="1">ไม่มีกรรมการในโครงการ.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+
+    </div>
+    </div>
+  </div>
+  <!-- *ngFor="let docRes of docResponse; let i = index;"  value="{{docRes.doc_name}}"  value="{{docRes.doc_address}}"  value="{{docRes.members}}"   value="{{docRes.doc_date | date:'medium' }}"  -->
+  <ng-template #elseTemplate>
+    <div class="status-send-box" *ngFor="let docRes of docResponse">
+      <h4>สถานะการส่ง</h4>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">สถานะการส่ง</span>
+        <input id="docStatus" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="ส่งผลงานแล้ว" *ngIf="docRes.status == true" style="color: seagreen;">
+        <input id="docStatus" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="ยังไม่ส่งผลงาน" *ngIf="docRes.status == false" style="color: #D5A619;">
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">เริ่มต้น-กำหนดส่ง</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled value="{{submitStart |  date: 'EEEE, d MMMM, y'}}  {{submitEndDate |  date: 'EEEE, d MMMM, y'}}">
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">ชื่อผลงาน</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled [value]="docRes.doc_name">
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">ที่อยู่ผลงาน</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled [value]="docRes.doc_address">
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">ชื่อสมาชิกกลุ่ม</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled [value]="docRes.members">
+      </div>
+      <div class="input-group ">
+        <span class="input-group-text" id="inputGroup-sizing-default">วันที่ส่งผลงาน</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" disabled [value]="docRes.doc_date |  date: 'EEEE, d MMMM, y'">
+      </div>
+    </div>
+</ng-template>
+    <div class="form-create" *ngIf="formCreate else elseTemplate" style="width: 100%;">
+      <div class="createBox">
+      <form [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+          <div class="left-formceate">
+            <h2>ส่งผลงาน</h2>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon3">ชื่อผลงาน</span>
+              <input type="text" class="form-control" formControlName="doc_name">
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">ที่อยู่ผลงาน</span>
+              <textarea class="form-control" aria-label="With textarea" formControlName="doc_address"></textarea>
+            </div>
+          </div>
+          <div class="right-formceate" style="padding-top: 50px;">
+              <span class="p-float-label" style="margin-left: 30px;">
+                <textarea id="float-input" rows="5" cols="50" pInputTextarea style="max-height: 10rem; width: 80%;" formControlName="members"></textarea>
+                <label for="float-input" style="font-size: 18px; width: 80%;">รายชื่อสมาชิกกลุ่ม ***ถ้ามี***</label>
+            </span>
+          </div>
+          <div class="bin-create-group">
+            <button type="button" class="btn btn-danger" (click)="formCreate = false">ยกเลิก</button>
+            <button type="submit" class="btn btn-success">ส่งผลงาน</button>
+        </div>
+      </form>
+      </div>
+    </div>
+    <div class="form-update" *ngIf="formUpdate"style="width: 100%;">
+      <div class="createBox" >
+      <form [formGroup]="updateForm" style="margin: 0 auto;" >
+          <div class="left-formceate">
+            <h2>แก้ไขผลงาน</h2>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon3">ชื่อผลงาน</span>
+              <input type="text" class="form-control" formControlName="doc_name">
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">ที่อยู่ผลงาน</span>
+              <textarea class="form-control" aria-label="With textarea" formControlName="doc_address"></textarea>
+            </div>
+          </div>
+          <div class="right-formceate" style="padding-top: 50px;">
+              <span class="p-float-label" style="margin-left: 30px;">
+                <textarea id="float-input" rows="5" cols="50" pInputTextarea style="max-height: 10rem; width: 80%;" formControlName="members"></textarea>
+                <label for="float-input" style="font-size: 18px; width: 80%;">รายชื่อสมาชิกกลุ่ม ***ถ้ามี***</label>
+            </span>
+          </div>
+          <div class="bin-create-group">
+            <button type="button" class="btn btn-danger" (click)="formUpdate = false">ยกเลิก</button>
+            <button type="button" class="btn btn-warning"  style="color: #fff;" (click)="updateDocument()">แก้ไขผลงาน</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  <div class="low-conent">
+      <div class="btn-group">
+        <button type="button" class="btn btn-info" (click)="formCreate = true">สร้างผลงาน</button>
+        <button type="button" class="btn btn-warning" (click)="openUpdateForm()"[disabled]="(!buttonUpdate)">แก้ไขผลงาน</button>
+      </div>
+      <div class="viewscore-box">
+        <span>ดูผลคะแนน</span>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">ดู</button>
+
+      </div>
+    </div>
+</div>

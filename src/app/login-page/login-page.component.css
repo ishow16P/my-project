@@ -1,0 +1,114 @@
+.container{
+  width: 80%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  padding-top: 70px;
+}
+.content{
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+
+  background: #fff;
+  filter: drop-shadow(0px 4px 3px #999);
+  border-radius: 1rem;
+}
+header{
+  width: 100%;
+  height: 160px;
+  padding-top: 30px;
+
+}
+h1{
+  font-size: 37px;
+  text-align: center;
+}
+header p{
+  color: #8D8D8D;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 30px;
+}
+header a{
+  padding-left: 5px;
+  color: #07A3C6;
+  cursor: pointer;
+}
+
+section{
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+}
+.input-group{
+  margin: 0 auto;
+}
+label{
+  font-size: 16px;
+  color: black ;
+  opacity: 0.5;
+  display: block;
+}
+input{
+  display: block;
+  height: 27px;
+  width: 90%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding-left: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #333;
+}
+#togglePassword{
+   cursor: pointer;
+   display: inline-block;
+   position: absolute;
+  right: 16%;
+  top: 50.5%;
+  width: 10%;
+   color: #333;
+   font-size: 16px;
+   transition: all 0.3s ease;
+}
+section a{
+  color: black;
+  opacity: .7;
+  font-size: 14px;
+}
+section a:hover{
+  color: black;
+  opacity: .5;
+}
+.btn{
+  width: 90%;
+  height: 45px;
+  background-color: #2f365f;
+  margin-left: 10px;
+  margin-top: 50px;
+  font-size: 22px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  filter: drop-shadow(0px 2px 2px #444);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:hover{
+  color: #2f365f;
+  background-color: #fff;
+
+}
+.error{
+  width: 100%;
+  margin: 5px 0px;
+  margin-bottom: 20px;
+  padding: 0px 5px;
+  font-size: 12px;
+  border-radius: 8px;
+  text-align: center;
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+

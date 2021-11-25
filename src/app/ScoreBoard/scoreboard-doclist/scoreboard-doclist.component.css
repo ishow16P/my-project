@@ -1,0 +1,42 @@
+*{
+  box-sizing: border-box;
+}
+.container{
+  width: 100%;
+  min-height: 81.2vh;
+  max-height: inherit;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+header ,
+section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 5px 0px;
+  height: inherit;
+}
+
+.leftheader,
+.rightheader{
+  display: block;
+  width: 49.5%;
+  margin: 0 auto;
+  padding: 0 auto;
+  background-color: #fff;
+  border: 2px solid #E7E7E6;
+  border-radius: 10px 10px 10px 10px;
+
+}
+.card{
+  margin: 10px;
+}
+.doclist-box{
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  border: 2px solid #E7E7E6;
+  border-radius: 10px 10px 10px 10px;
+}

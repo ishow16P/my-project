@@ -1,0 +1,171 @@
+footer{
+  background-color: #2f365f;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  height: 130px;
+  display:  flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.logo{
+  display: block;
+  width: 33.33%;
+  height: inherit;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+.fastnav{
+  display: block;
+  height: inherit;
+  width: 33.33%;
+  color: white;
+}
+.contact{
+  display: block;
+  height: inherit;
+  width: 33.33%;
+  color: white;
+}
+.logo h2{
+  position: relative;
+  top: 35%;
+}
+.fastnav p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: lighter;
+}
+.fastnav ol{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding-left: 0;
+}
+.fastnav a{
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.fastnav a:hover{
+  text-decoration: underline;
+}
+.contactitem{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+#facebook,
+#email,
+#tell,
+#www{
+  display: flex;
+  width: 50%;
+  font-size: 14px;
+  margin-top: 20px;
+}
+.contactitem i{
+  font-size: 20px;
+  width: 20px;
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+@media all and (max-width: 800px){
+  .container{
+    max-height: inherit;
+    display:  flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo{
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    height: inherit;
+    position: relative;
+  }
+  .fastnav{
+    margin-top: 20px;
+    display: block;
+    height: inherit;
+    width: 80%;
+  }
+  .contact{
+    margin-top: 20px;
+    display: block;
+    height: inherit;
+    width: 80%;
+  }
+  .logo h2{
+    position: relative;
+    top: 35%;
+  }
+  .fastnav p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: lighter;
+  }
+  .fastnav ol{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-left: 0;
+  }
+  .fastnav a{
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  .fastnav a:hover{
+    text-decoration: underline;
+  }
+  .contactitem{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+  }
+  #facebook,
+  #email,
+  #tell,
+  #www{
+    display: flex;
+    width: 50%;
+    font-size: 16px;
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+  .contactitem i{
+    font-size: 22px;
+    width: 20px;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media all and (max-width: 600px){
+  .logo h2{
+    font-size: 20px;
+  }
+  .fastnav p,
+  .fastnav a,
+  #facebook,
+  #email,
+  #tell,
+  #www{
+    font-size: 14px;
+  }
+}

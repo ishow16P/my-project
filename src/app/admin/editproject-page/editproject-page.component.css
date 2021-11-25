@@ -1,0 +1,258 @@
+
+.content{
+  border-radius: 1rem;
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 2%;
+  border: 2px solid #E2E2E2;
+}
+.head-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.head-content h2{
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 20px 10px 20px;
+  margin: 0px;
+}
+.left-header,
+.right-header{
+  display: block;
+  width: 50%;
+}
+.left-header h2{
+  font-size: 24px;
+  padding: 0px 20px 10px 20px;
+  margin: 0px;
+}
+.right-header i{
+  width: 90%;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+}
+.right-header i:hover{
+  color: #E2E2E2;
+}
+.projectDetail,
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.left-content,
+.right-content{
+  display: block;
+  width: 50%;
+  padding: 20px;
+  border-top: 1px solid #E2E2E2;
+  border-bottom:1px solid #E2E2E2;
+}
+.left-content{
+  border-right: 1px solid #E2E2E2;
+}
+.right-content{border-left: 1px solid #E2E2E2;}
+.bottom-content{
+  display: block;
+  width: 100%;
+  border-bottom:2px solid #E2E2E2;
+}
+.projectName-box,
+.projectType-box,
+.dateStart-box,
+.dateEnd-box,
+.sendStart-box,
+.sendEnd-box,
+.scoreStart-box,
+.scoreEnd-box,
+.rule-box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.projectName-box span,
+.projectType-box span,
+.dateStart-box span,
+.dateEnd-box span,
+.sendStart-box span,
+.sendEnd-box span,
+.scoreStart-box span,
+.scoreEnd-box span,
+.rule-box span{
+  width: 140px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.projectName-box input,
+.projectType-box input,
+.dateStart-box input,
+.dateEnd-box input,
+.sendStart-box input,
+.sendEnd-box input,
+.scoreStart-box input,
+.scoreEnd-box input,
+.rule-box input{
+  width: 60%;
+}
+.dateStart-box span,
+.sendStart-box span,
+.scoreStart-box span{
+  color: #2E6475;
+}
+.dateEnd-box span,
+.sendEnd-box span,
+.scoreEnd-box span{
+  color: #B61010;
+}
+.referee-box{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.refereelist{
+  width: 50%;
+  padding-bottom: 8px;
+}
+.refereelist th{
+
+  font-size: 18px;
+  font-weight: bold;
+}
+.refereelist td{
+  font-size: 16px;
+  padding: 10px;
+  font-weight: bold;
+}
+.bottom-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.left-box,
+.right-box{
+  display: block;
+  width: 50%;
+  padding: 20px;
+
+}
+.right-box{
+  margin-top: 4%;
+}
+.rulename-box,
+.desciption-box{
+  margin-bottom: 20px;
+}
+.rulename-box span,
+.desciption-box span{
+  display: block;
+  width: 140px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.rulename-box input,
+.desciption-box textarea{
+  width: 89%;
+}
+.desciption-box textarea{
+  min-height: 4rem;
+  max-height: 8rem;
+}
+.btn-edit{
+  margin: 10px 20PX 20px;
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+.btn-edit button{
+  color: #fff;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.refereeBox{
+  padding: 10px;
+  padding-bottom: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+.p-field,
+.btn_add{
+  display: block;
+  width: 50%;
+  margin-bottom: 20px;
+}
+.p-field input{
+  width: 100%;
+}
+.btn_add{
+  padding-top: 20px;
+  padding-left: 30px;
+}
+::ng-deep .cdk-overlay-container {
+  z-index: 1200 !important;
+}
+/*Modal*/
+.modal-body{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.left-contentmodal,
+.right-contentmodal{
+  display: block;
+  width: 50%;
+}
+.bottom-contentmodal{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+.left-boxmodal,
+.right-boxmadol{
+  display: block;
+  width: 50%;
+}
+.left-contentmodal span,
+.right-contentmodal span{
+  width: 120px;
+  display: flex;
+  font-size: 16px;
+  font-weight: normal;
+}
+.projectNamemodal-box,
+.projectTypemodal-box{
+  margin-bottom: 20px;
+
+}
+.projectNamemodal-box input,
+.projectTypemodal-box select{
+  width: 80%;
+}
+.refereelist-modal{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.rule-boxmodal{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.rule-boxmodal span{
+  width: 120px;
+  display: flex;
+}

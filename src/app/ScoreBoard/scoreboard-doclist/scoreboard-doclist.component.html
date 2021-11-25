@@ -1,0 +1,130 @@
+<div class="container">
+  <header *ngFor="let pro of project">
+      <div class="leftheader">
+        <div class="card" >
+          <p-table #dt [value]="project">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 30%;">รายละเอียโครงการ </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-proDetail>
+              <!--  *ngFor="let project of projects | filter:searchText"  -->
+                <tr>
+                  <td>ชื่อโครงการ :</td>
+                  <td>{{proDetail.pro_name}}</td>
+                </tr>
+                <tr>
+                    <td>ประเภท :</td>
+                    <td>{{proDetail.type_name}}</td>
+                </tr>
+                <tr>
+                    <td>วันที่เริ่มต้น :</td>
+                    <td>{{proDetail.start_date | date :'EEEE, d MMMM, y'}}</td>
+                </tr>
+                <tr>
+                    <td>วันที่สิ้นสุด :</td>
+                    <td>{{proDetail.end_date | date :'EEEE, d MMMM, y'}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="1">ไม่มีข้อมูลโครงการ.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+      <div class="rightheader">
+        <div class="card" >
+          <p-table #dt [value]="project">
+            <ng-template pTemplate="header">
+              <tr>
+                  <th style="width: 30%;">กฎเกณฑ์ในการให้คะแนน</th>
+                  <th></th>
+              </tr>
+          </ng-template>
+            <ng-template pTemplate="body" let-proDetail>
+              <!--  *ngFor="let project of projects | filter:searchText"  -->
+                <tr>
+                    <td >กฎเกณฑ์ที่ 1:</td>
+                    <td>{{proDetail.rule_1}}</td>
+                </tr>
+                <tr>
+                    <td>กฎเกณฑ์ที่ 2:</td>
+                    <td>{{proDetail.rule_2}}</td>
+                </tr>
+                <tr>
+                    <td>กฎเกณฑ์ที่ 3:</td>
+                    <td>{{proDetail.rule_3}}</td>
+                </tr>
+                <tr>
+                  <td>กฎเกณฑ์ที่ 4:</td>
+                    <td>{{proDetail.rule_4}}</td>
+                </tr>
+                <tr>
+                  <td>กฎเกณฑ์ที่ 5:</td>
+                    <td>{{proDetail.rule_5}}</td>
+                </tr>
+
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="1">ไม่มีกฎเกณฑ์ในโครงการ.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+  </header>
+  <section>
+    <div class="doclist-box">
+      <div class="card" >
+        <p-table #dtScore [value]="documents" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0" [globalFilterFields]="['doc_name']">
+        <ng-template pTemplate="caption" >
+          <div class="p-d-flex">
+            <span class="p-input-icon-left" style="width: 100%;">
+                     <i class="pi pi-search"></i>
+                     <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search..." style="width: 50%;border-radius: 10px"/>
+           </span>
+         </div>
+       </ng-template>
+          <ng-template pTemplate="header">
+              <tr style="font-size: 14px;">
+                  <th style="text-align: center;">ชื่อผลงาน </th>
+                  <th style="text-align: center;">กฎเกณฑ์ที่ 1</th>
+                  <th style="text-align: center;">กฎเกณฑ์ที่ 2</th>
+                  <th style="text-align: center;">กฎเกณฑ์ที่ 3</th>
+                  <th style="text-align: center;">กฎเกณฑ์ที่ 4</th>
+                  <th style="text-align: center;">กฎเกณฑ์ที่ 5</th>
+                  <th >คะแนนรวมเฉลี่ย</th>
+                  <th></th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-document>
+            <!--  *ngFor="let project of projects | filter:searchText"  -->
+              <tr>
+                  <td style="text-align: center;">{{document.doc_name}} </td>
+                  <td style="text-align: center;">{{document.score_1}}</td>
+                  <td style="text-align: center;">{{document.score_2}}</td>
+                  <td style="text-align: center;">{{document.score_3}}</td>
+                  <td style="text-align: center;">{{document.score_4}}</td>
+                  <td style="text-align: center;">{{document.score_5}}</td>
+                  <td style="text-align: center;">{{document.scoreAvg}}</td>
+                  <td>
+                    <button pButton pRipple type="button" label="ดูรายละเอียด" class="p-button-outlined" style="padding: 5px; border-radius: 5px;" (click)="goScoreDetail(document.doc_id)"></button>
+                  </td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="3">ยังไม่มีผลคะแนน.</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </section>
+</div>

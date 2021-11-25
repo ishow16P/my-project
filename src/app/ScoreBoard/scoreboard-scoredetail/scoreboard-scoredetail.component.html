@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="header">
+  <i class="pi pi-arrow-left" (click)="goBack()"></i>
+  </div>
+  <div class="card" >
+    <p-table #dtScore [value]="scoreboard">
+      <ng-template pTemplate="header">
+          <tr style="font-size: 14px;">
+              <th style="text-align: center;">ชื่อกรรมการ </th>
+              <th style="text-align: center;">กฎเกณฑ์ที่ 1</th>
+              <th style="text-align: center;">กฎเกณฑ์ที่ 2</th>
+              <th style="text-align: center;">กฎเกณฑ์ที่ 3</th>
+              <th style="text-align: center;">กฎเกณฑ์ที่ 4</th>
+              <th style="text-align: center;">กฎเกณฑ์ที่ 5</th>
+              <th style="text-align: center;">คะแนนรวมเฉลี่ย</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-score>
+        <!--  *ngFor="let project of projects | filter:searchText"  -->
+          <tr>
+              <td style="text-align: center;">{{score.fname}} {{score.lname}}</td>
+              <td style="text-align: center;">{{score.score_1}}</td>
+              <td style="text-align: center;">{{score.score_2}}</td>
+              <td style="text-align: center;">{{score.score_3}}</td>
+              <td style="text-align: center;">{{score.score_4}}</td>
+              <td style="text-align: center;">{{score.score_5}}</td>
+              <td style="text-align: center;">{{score.scoreAvg}}</td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="3">ยังไม่มีผลคะแนน.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="content">
+  <div class="header">
+        <h2>Create Uesr</h2>
+  </div>
+    <form [formGroup]="createUserform" (ngSubmit)="onSubmit(password1.value,password2.value)">
+      <div class="input-box">
+        <label >Username :</label>
+        <input type="text"  pInputText formControlName="username">
+      </div>
+      <div class="input-box">
+        <label>Fristname :</label>
+        <input type="text"  pInputText formControlName="fname">
+      </div>
+      <div class="input-box">
+        <label>Lastname :</label>
+        <input type="text"  pInputText formControlName="lname">
+      </div>
+      <div class="input-box">
+        <label>Email :</label>
+        <input type="text"  pInputText formControlName="email">
+      </div>
+      <div class="input-box">
+        <label>Tel :</label>
+        <input type="text"  pInputText formControlName="tel">
+      </div>
+      <div class="input-box">
+        <label>Password :</label>
+        <input type="password"  id="password1" pInputText #password1  formControlName="password">
+        <i (click)="togglePassService('password1','togglePassword1')" class="fas fa-eye-slash" id="togglePassword1"></i>
+      </div>
+      <div class="input-box">
+        <label>Confirm Password :</label>
+        <input type="password"  id="password2" pInputText #password2>
+        <i (click)="togglePassService('password2','togglePassword2')" class="fas fa-eye-slash" id="togglePassword2"></i>
+      </div>
+      <div class="btn-group">
+        <button type="submit">Create</button>
+      </div>
+    </form>
+
+</div>
+

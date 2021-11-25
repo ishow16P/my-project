@@ -1,0 +1,39 @@
+<div class="content">
+  <div class="header">
+    <div class="left-header">
+      <h2>คำขอเข้าร่วม</h2>
+    </div>
+    <div class="right-header">
+      <i class="pi pi-arrow-left" [routerLink]="['/admin/projectlist-page']" routerLinkActive="router-link-active"></i>
+    </div>
+  </div>
+  <div class="card">
+    <p-table #dt [value]="requestList" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="fname" style="width: 20%;">ชื่อ <p-sortIcon field="fname"></p-sortIcon></th>
+              <th pSortableColumn="email" style="width: 20%;">อีเมลล์<p-sortIcon field="type"></p-sortIcon></th>
+              <th style="width: 20%; text-align: center;"></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-request>
+          <tr>
+              <td>{{request.fname}} {{request.lname}}</td>
+              <td >{{request.email}}</td>
+              <td style="text-align: center;">
+                <button pButton pRipple type="button" label="ยอมรับ" class="p-button-raised" style="width: 30%;height: 30px;" (click)="addRequest(request.user_id)" ></button>
+                <button pButton pRipple type="button" label="ปฎิเสธ" class="p-button-danger" style="width: 30%;height: 30px;" (click)="deleteRequest(request.user_id)"></button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="1">
+            ไม่คำขอเข้าร่วมโครงการ.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+

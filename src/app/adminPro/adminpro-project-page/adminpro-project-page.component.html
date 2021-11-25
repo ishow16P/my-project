@@ -1,0 +1,80 @@
+<div class="container" >
+  <div class="content" >
+    <div class="leftcontent" >
+      <div class="Pro_detail" *ngFor="let proDetail of projectDeatail">
+        <h2 class="pro_detail" >รายละเอียด โครงการ</h2>
+        <div class="pro-detailBox">
+          <h2 class="pro_name" >ชื่อโครงการ : {{proDetail.pro_name}}</h2>
+          <span class="pro_type">ประเภท : {{proDetail.type_name}}</span>
+            <div class="date">
+              <div class="start">
+                <span class="start_date">วันที่สร้าง : {{proDetail.start_date | date: 'EEEE, MMMM d, y'}}</span>
+              </div>
+              <div class="end">
+                <span class="end_date">วันที่สิ้นสุด : {{proDetail.end_date | date: 'EEEE, MMMM d, y'}}</span>
+              </div>
+            </div>
+            <div class="ruleName">
+              <span class="rule_name">ชื่อกฎเกณฑ์ : {{proDetail.rule_name}}</span>
+            </div>
+            <div class="rule_deltai">
+              <span class="rule_de">กฎเกณฑ์ที่ 1 : {{proDetail.rule_1}}</span>
+              <span class="rule_de">กฎเกณฑ์ที่ 2 : {{proDetail.rule_2}}</span>
+              <span class="rule_de">กฎเกณฑ์ที่ 3 : {{proDetail.rule_3}}</span>
+              <span class="rule_de">กฎเกณฑ์ที่ 4 : {{proDetail.rule_4}}</span>
+              <span class="rule_de">กฎเกณฑ์ที่ 5 : {{proDetail.rule_5}}</span>
+            </div>
+            <div class="btn-group1">
+              <button type="button" (click)="goEditProject()">แก้ไข</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="rightcontent">
+      <div class="refereeBox">
+      <h2 class="refereetext">กรรมการ</h2>
+        <div class="p-field">
+          <label for="username1">เพิ่มรายชื่อกรรมการ</label>
+          <input id="username1" type="username" aria-describedby="username1-help" [(ngModel)]="refereeName" pInputText />
+          <small id="username1-help">กรุณาใส่ Username หรือ E-mail ของกรรมการ</small>
+        </div>
+        <div class="btn_add">
+          <button type="button" class="btn btn-primary" (click)="addReferee()">เพิ่ม</button>
+        </div>
+      <div class="card" >
+        <p-table #dt [value]="refereeinPro" [paginator]="true" [rows]="4" [showCurrentPageReport]="true"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [filterDelay]="0">
+          <ng-template pTemplate="header" >
+              <tr>
+                  <th style="width: 30%;">Name </th>
+                  <th style="width: 50%;">Email </th>
+                  <th></th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-referee>
+            <!--  *ngFor="let project of projects | filter:searchText"  -->
+              <tr>
+                  <td>{{referee.fname}} {{referee.lname}}</td>
+                  <td>{{referee.email}}</td>
+                  <td><button type="button" class="btn btn-danger" (click)="deleteReferee(referee.user_id, referee.fname,referee.lname)">ลบ</button></td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">ไม่มีกรรมการในโครงการ.</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    </div>
+  <div class="middle_content">
+    <div class="card2">
+      <p-tabMenu  [model]="items"></p-tabMenu>
+    </div>
+    <div class="page">
+      <router-outlet></router-outlet>
+  </div>
+  </div>
+  </div>
+</div>

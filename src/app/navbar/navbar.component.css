@@ -1,0 +1,43 @@
+.navbar{
+  background-color: #2f365f;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  width: 70%;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+#navbarNavAltMarkup{
+  position: relative;
+}
+.navbar-brand{
+  font-size: 24px;
+  color: #fff;
+  margin-right: 2rem;
+}
+.Account{
+  position: relative;
+  margin-right: 0;
+  margin-left: auto;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.nav-link{
+  color: #fff;
+}
+a:hover{
+  color: #999;
+  transition: all .3s ease;
+}
+button{
+  background-color:#2f365f;
+  opacity: 0.5;
+  border: 1px solid white;
+}
+.fa-bars{
+  color: #fff;
+}
+
